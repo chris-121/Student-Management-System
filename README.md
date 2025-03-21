@@ -58,3 +58,6 @@ Use it in the Authorization header for protected routes:
 ```bash
 Authorization: Bearer <your_token>
 ```
+
+## API Documentation
+https://documenter.getpostman.com/view/20976819/2sAYkHnHWz
