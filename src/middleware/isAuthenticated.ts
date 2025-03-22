@@ -2,10 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { BadRequestError } from "../utils";
 import { Role } from "../types/userRoles";
-import dotenv from "dotenv";
-dotenv.config();
-
-const JWT_SECRET = process.env.JWT_SECRET!;
 
 export const isAuthenticated = (
   req: Request,
@@ -19,6 +15,7 @@ export const isAuthenticated = (
 
   const token = authHeader.split(" ")[1];
   try {
+    const JWT_SECRET = process.env.JWT_SECRET!;
     const decoded = jwt.verify(token, JWT_SECRET) as {
       id: string;
       role: Role;
